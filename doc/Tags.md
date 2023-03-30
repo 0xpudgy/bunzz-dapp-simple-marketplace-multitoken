@@ -1,1 +1,1 @@
-Non Tradeable Token, ERC4671
+MultiToken, ERC1155, Simple Marketplace

@@ -1,19 +1,11 @@
 ## How to use module
 
-1. Prepare the metadata for your tokens and upload them to a storage solution like s3 or IPFS (both centralized and decentralized solutions works).
+1. Prepare your nft contract and mint all the items from the collection.
 
-2. After you upload your metadata on s3 in return you will receive a link.
+2. Call the function `connectToOtherContracts` to set up the details explained in the table from above, the function takes only one argument that represents an array of addresses, the first item from the array represent the nft.
 
-3. When deploying the contract, you need to prepare 3 arguments, the first argument is a string and represents the name of the token, the second argument is a string and represents the symbol of the token, the third argument represents the base URI of the collection metadata, basically the link you received from s3.
+3. Approve the nft marketplace to use the token id you want to list up for sale.
 
-4. Call the “mint” function (it can only be called by the owner), with the only argument being the address that will receive the token.
+4. To list one nft up for sale, the function `list` needs to be called, the function takes two arguments, the first argument argument represents the token id of the nft you want to list up for sale, and the second argument represents the price of that nft, that will be payed in the currency selected by the contract owner at the previous step.
 
-5. The metadata of a token can be retrieved by calling the “tokenURI” function, in which the only argument is the id of the token.
-
-6. The “transfer” and “transferFrom” functions do not work, the call will revert.
-
-7. To mark a token as invalid, basically, to revoke it from the user, you need to call the function “revoke”, this function has only one argument and that one argument is the id of the token you want to make invalid.
-
-8. To check if a token is valid or invalid, you can call the function “isValid”, it has only one argument, and that one argument is the id of the token.
-
-9. To check if a user has any valid tokens, you can call the function “hasValid”, the function have only one argument, and that one argument represents the address of the user you want to check if it has any valid tokens.
+5. To buy one nft that is listed for sale, you need to call the function `buy`, this function takes 1 arguments, the token id of the nft you want to buy, the amount you will be paying for it it is payed in native tokens so it should be send over the `msg.value`.

@@ -1,109 +1,55 @@
 # WRITE(main)
 
-## mint
+## transferOwnership
 
-Mint new sould bound tokens
-
-|Name|Type|Description|Example|Default|
-|--- |---|---|---|---|
-|owner|address|The address that will received the sould bond token and own it||N/A|
-
-## revoke
-
-Revoke a token id from a token owner making it invalid
+Transfer the ownership of the contract
 
 |Name|Type|Description|Example|Default|
 |--- |---|---|---|---|
-|tokenId|uint256|The token id that will be revoked, marked as invalid||N/A|
+|newOwner|address|The address of the new owner of the contract||N/A|
+
+## renounceOwnership
+
+Renounce on the contract ownership
+
+## list
+
+Create a listing in marketplace for a certain item from the collection
+
+|Name|Type|Description|Example|Default|
+|--- |---|---|---|---|
+|tokenId|uint256|The id of the token you want to list for sale||N/A|
+|price|uint256|The price you want to sell the token for||N/A|
+
+## connectToOtherContracts
+
+Connect this modules with other ones to interact with, in this case the NFT collecton that will be sold
+
+|Name|Type|Description|Example|Default|
+|--- |---|---|---|---|
+|contracts|address[]|The list of contracts you want to connect with this module||N/A|
+
+## buy
+
+Buy a certain token from the collection that is listed in the marketplace
+
+|Name|Type|Description|Example|Default|
+|--- |---|---|---|---|
+|tokenId|uint256|The id of the token that you want to buy||N/A|
 
 # READ(main)
 
-## tokenURI
+## tokensListing
 
-Retrieves the URI for a sould bond token id
+Returns the id of the listing based on the nft token id
 
-|Name|Type|Description|
-|--- |---|---|
-|tokenId|uint256|The id of the token|
+## owner
 
-## tokenOfOwnerByIndex
+Returns the contract owner
 
-Retrieves the token of a certain token owner by the index from his balance
+## nft
 
-|Name|Type|Description|
-|--- |---|---|
-|owner|address|The owner of the tokens|
-|index|uint256|The index of the token in the owner balance|
+Returns the nft address
 
-## tokenByIndex
-
-Retrieves the token by the index from the user balance
-
-|Name|Type|Description|
-|--- |---|---|
-|index|uint256|The index of the token from the owner balance|
-
-## symbol
-
-Retrieves the symbol of the sould bond token collection
-
-## supportsInterface
-
-Retrieves wheter the contract supports an interface
-
-|Name|Type|Description|
-|--- |---|---|
-|interfaceId|bytes4|The id of the interface as bytes|
-
-## ownerOf
-
-Retrieves the owner of a certain sould bond token id
-
-|Name|Type|Description|
-|--- |---|---|
-|tokenId|uint256|The tokenId you want to check the owner of|
-
-## name
-
-Retrieves the name of the sould bond tokens collection
-
-## isValid
-
-Retrieves if a token id is a valid sould bond token or not'
-
-|Name|Type|Description|
-|--- |---|---|
-|tokenId|uint256|The token id of the sould bond token you want to check|
-
-## holdersCount
-
-Retrieves the number of sould bound tokens holders
-
-## hasValid
-
-Check if the address has a valid sould bond token
-
-|Name|Type|Description|
-|--- |---|---|
-|owner|address|The owner of the tokens|
-
-## emittedCount
-
-Retrieves the account that have the role to emit tokens
-
-## baseURI
-
-Retrieves the base URI of the whole sould bond tokens collection
-
-## balanceOf
-
-Retrieves the balance of an address
-
-|Name|Type|Description|
-|--- |---|---|
-|owner|address|The owner of the tokens|
-
-## _creator
-
-Retrieves the creator address
-
+## listings
+Returns listing informations
