@@ -1,0 +1,1 @@
+Non Tradeable Token, ERC4671
